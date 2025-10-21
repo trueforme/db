@@ -32,8 +32,6 @@ namespace Game.Domain
             // ReSharper disable once AutoPropertyCanBeMadeGetOnly.Local For MongoDB
             private set;
         }
-
-        [BsonElement]
         public IReadOnlyList<Player> Players => players.AsReadOnly();
         
         [BsonElement]
