@@ -10,13 +10,12 @@ namespace Game.Domain
         [BsonElement]
         private readonly List<Player> players;
 
-        [BsonConstructor]
         public GameEntity(int turnsCount)
             : this(Guid.Empty, GameStatus.WaitingToStart, turnsCount, 0, new List<Player>())
         {
         }
 
-        //[BsonConstructor]
+        [BsonConstructor]
         public GameEntity(Guid id, GameStatus status, int turnsCount, int currentTurnIndex, List<Player> players)
         {
             Id = id;
@@ -26,15 +25,16 @@ namespace Game.Domain
             this.players = players;
         }
 
+        [BsonElement]
         public Guid Id
         {
             get;
             // ReSharper disable once AutoPropertyCanBeMadeGetOnly.Local For MongoDB
             private set;
         }
-        
         public IReadOnlyList<Player> Players => players.AsReadOnly();
-
+        
+        [BsonElement]
         public int TurnsCount { get; }
 
         public int CurrentTurnIndex { get; private set; }

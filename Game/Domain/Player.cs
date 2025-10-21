@@ -14,6 +14,7 @@ namespace Game.Domain
             UserId = userId;
             Name = name;
         }
+
         [BsonElement]
         public Guid UserId { get; }
 
@@ -26,13 +27,11 @@ namespace Game.Domain
         /// <summary>
         /// Ход, который выбрал игрок
         /// </summary>
-        [BsonElement]
         public PlayerDecision? Decision { get; set; }
         
         /// <summary>
         /// Текущие очки в игре. Сколько туров выиграл этот игрок.
         /// </summary>
-        [BsonElement]
         public int Score { get; set; }
     }
 }
