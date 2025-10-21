@@ -1,4 +1,5 @@
 using System;
+using MongoDB.Bson.Serialization.Attributes;
 
 namespace Game.Domain
 {
@@ -14,6 +15,7 @@ namespace Game.Domain
             Id = id;
         }
 
+        [BsonConstructor]
         public UserEntity(Guid id, string login, string lastName, string firstName, int gamesPlayed, Guid? currentGameId)
         {
             Id = id;
