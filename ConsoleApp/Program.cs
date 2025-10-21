@@ -13,10 +13,11 @@ namespace ConsoleApp
 
         private Program(string[] args)
         {
+            
             var db = TestMongoDatabase.Create();
-            db.DropCollection(MongoUserRepository.CollectionName);
+            //db.DropCollection(MongoUserRepository.CollectionName);
             userRepo = new MongoUserRepository(db);
-            gameRepo = new InMemoryGameRepository();
+            gameRepo = new MongoGameRepository(db);
         }
 
         public static void Main(string[] args)
